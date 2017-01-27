@@ -2,8 +2,8 @@
 class moodle::params {
 
   $install_dir    = '/opt/moodle'
-  $download_base  = 'https://download.moodle.org/download.php/direct/stable30'
-  $moodle_version = '3.0.1'
+  $download_base  = 'https://download.moodle.org/download.php/direct/stable32'
+  $moodle_version = '3.2'
   $default_lang   = 'en'
   $wwwrooturl     = "http://${::fqdn}"
   $dataroot       = '/opt/moodledata'
