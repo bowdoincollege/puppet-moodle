@@ -60,8 +60,8 @@ class moodle (
     ensure => installed,
   }
   
-  package {'php7.0-xml':
-    ensure => installed,
+  if ! defined(Package['php7.0-xml']) {
+    package { 'php7.0-xml': ensure => installed }
   }
   
   package {'php7.0-xmlrpc':
