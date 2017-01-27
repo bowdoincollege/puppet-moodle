@@ -40,11 +40,47 @@ class moodle (
   $adminemail     = $moodle::params::adminemail,
 ) inherits moodle::params {
 
-  package {'php5-gd':
+  package {'php7.0-gd':
+    ensure => installed,
+  }
+  
+  package {'php7.0-curl':
+    ensure => installed,
+  }
+  
+  package {'php7.0-pspell':
+    ensure => installed,
+  }
+  
+  package {'php7.0-intl':
+    ensure => installed,
+  }
+  
+  package {'php7.0-mysql':
+    ensure => installed,
+  }
+  
+  package {'php7.0-xml':
+    ensure => installed,
+  }
+  
+  package {'php7.0-xmlrpc':
+    ensure => installed,
+  }
+  
+  package {'php7.0-zip':
+    ensure => installed,
+  }
+  
+  package {'php7.0-soap':
+    ensure => installed,
+  }
+  
+  package {'php7.0-ldap':
     ensure => installed,
   }
 
-  package {'php5-curl':
+  package {'php7.0-mbstring':
     ensure => installed,
   }
 
@@ -75,7 +111,13 @@ class moodle (
     adminuser      => $adminuser,
     adminpass      => $adminpass,
     adminemail     => $adminemail,
-    require        => [Package['php5-gd'], Package['php5-curl']],
+    require        => [
+      Package['php7.0-curl'], Package['php7.0-pspell'], Package['php7.0-gd'], 
+      Package['php7.0-pspell'], Package['php7.0-intl'], Package['php7.0-mysql'],
+      Package['php7.0-xml'], Package['php7.0-xmlrpc'], Package['php7.0-ldap'],
+      Package['php7.0-zip'], Package['php7.0-soap'], Package['php7.0-ldap'],
+      Package['php7.0-mbstring']
+    ],
   }
 
 }
